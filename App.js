@@ -22,6 +22,39 @@ const MyStack = () => {
   )
 }
 
+const PostRequest = (phone, name) => {
+  const reqOptions = {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      mob: {phone},
+      name: {name}
+    })
+  };
+
+  const post = async () => {
+    try {
+      await fetch('https://ap-south-1.aws.data.mongodb-api.com/app/smarttraveller-zapex/endpoint/signup',reqOptions)
+      .then(response => {
+        if(phone===response.data.mob.trim()){
+          console.log("number already registered");
+        }else{
+          {
+            mob: {numberLong}{phone}
+            name: {name}
+          }
+        }
+      })
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  return(
+    {post}
+  )
+}
+
 const Register1 = ({navigation}) => {
 
   const [phone, setPhone] = useState("");
@@ -41,7 +74,13 @@ const Register1 = ({navigation}) => {
         keyboardType="numeric"/>
       <TouchableOpacity
         style={styles.but}
-        onPress={() => navigation.navigate('page2')}
+        onPress={()=>{
+          if(phone.trim()===""){
+            alert("Phone Number required");
+          }else{
+            navigation.navigate('page2');
+          }
+        }}
       ><Text style={{color:"#FFFFFF"}}>NEXT</Text></TouchableOpacity>
     </View>
   )
@@ -61,7 +100,14 @@ const Register2 = ({navigation}) => {
       />
       <TouchableOpacity 
         style={styles.but}
-        onPress={() => navigation.navigate('page3')}
+        onPress={()=>{
+          if(name.trim()===""){
+            alert("Name required");
+          }else{
+            PostRequest;
+            navigation.navigate('page3');
+          }
+        }}
       ><Text style={{color: "#FFFFFF"}}>SIGN UP</Text></TouchableOpacity>
       <Text style={{marginTop: 40}}>By signing up you agree to Photo's {<u>Terms of Service</u>} and {<u>Privacy Policy</u>}.</Text>
     </View>
@@ -121,3 +167,4 @@ export default function App() {
   );
 }
 
+// () => navigation.navigate('page2')
