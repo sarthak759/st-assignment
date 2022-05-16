@@ -67,7 +67,7 @@ const Register1 = ({navigation}) => {
         placeholder="Enter mobile Number"
         onChangeText={(text)=> setPhone(text)}
       />
-      <Text>Send OTP</Text>
+      <Text style={{textDecorationLine: 'underline'}}>Send OTP</Text>
       <TextInput 
         style={styles.input}
         secureTextEntry={true}
