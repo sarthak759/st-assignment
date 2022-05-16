@@ -109,7 +109,7 @@ const Register2 = ({navigation}) => {
           }
         }}
       ><Text style={{color: "#FFFFFF"}}>SIGN UP</Text></TouchableOpacity>
-      <Text style={{marginTop: 40}}>By signing up you agree to Photo's {<u>Terms of Service</u>} and {<u>Privacy Policy</u>}.</Text>
+      <Text style={{marginTop: 40}}>By signing up you agree to Photo's <Text style={{textDecorationLine: 'underline'}}>Terms of Service</Text> and <Text style={{textDecorationLine: 'underline'}}>Privacy Policy</Text>.</Text>
     </View>
   )
 }
@@ -151,13 +151,13 @@ const styles= StyleSheet.create({
   },
   image:{
     height: 172,
-    transform: "matrix(1,0,0,-1,0,0)"
+    // transform: "matrix(1,0,0,-1,0,0)"
   },
   imageText:{
     fontWeight: '500',
     marginHorizontal: 15,
-    marginVertical: 95,
-    transform: "matrix(1,0,0,-1,0,0)"
+    marginVertical: 15,
+    // transform: "matrix(1,0,0,-1,0,0)"
   }
 })
 
